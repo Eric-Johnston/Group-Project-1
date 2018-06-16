@@ -36,15 +36,38 @@ $(document).ready(function(){
                         method: "GET"
                     })
                     .then(function(eventResponse){
-                        var response = eventResponse.resultsPage.results.event
-                        console.log(response)
-                        events.push(response)
+                        var response = eventResponse.resultsPage.results.event;
+                        console.log(response);
+                        events.push(response);
+                        var latitude = eventResponse.resultsPage.results.event[0].venue.lat
+                        var longitude = eventResponse.resultsPage.results.event[0].venue.lng
+                        console.log(latitude, longitude)
+
+                        var latLng = {
+                            latitude: latitude,
+                            longitude: longitude
+                        }
+ 
+                        // Initialize Firebase
+                        var config = {
+                            apiKey: "AIzaSyByKZKEuCfRM-tdsjJiC_XIsiGdxOgGsgk",
+                            authDomain: "concerts-events.firebaseapp.com",
+                            databaseURL: "https://concerts-events.firebaseio.com",
+                            projectId: "concerts-events",
+                            storageBucket: "concerts-events.appspot.com",
+                            messagingSenderId: "160710496348"
+                        };
+                        firebase.initializeApp(config);
+
+                        var database = firebase.database();
+
+                        database.ref().set({
+                            venueLocation: latLng
+                        })
                     });
-            }
-        })
-    });
-};
-// firebase.initializeApp(config)
+                }
+            })
+        });
+    };
 eventSearch();
 })
-                    
