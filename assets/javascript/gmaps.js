@@ -24,6 +24,7 @@ var venueName = "";
 var eventDate = "";
 var eventLink = "";
 
+var cardElements = [];
 
 //these are just arbitrary values that will get replaced by the event details
 var eventLat = 1.123;
@@ -34,11 +35,7 @@ var eventLng = 1.123;
 var selectedEvent = "";
 
 //these variables will be used to hold the card content
-var preCard = "";
-//var preCard2 = "";
-var cardContent = "";
-//var cardContentQ = "";
-//var fullCard = "";
+var cardRow = "";
 
 //triggers the json request and results population
 $("#searchRequest").click(function(event)
@@ -60,26 +57,40 @@ $("#searchRequest").click(function(event)
         //clear out any content in the variableContent div
         $("#variableContent").html("");
 
+        //empty array before storing information
+        cardElements.splice(0);
+
+        //call to firebase, loops through database and gets all event details, one event at a time
         database.ref().on("child_added", function(snapshot) 
             {
                 actName = snapshot.val().artist;
-                console.log(actName);
+                //console.log(actName);
                 eventDate = snapshot.val().date;
-                console.log(eventDate);
+                //console.log(eventDate);
                 eventLat = snapshot.val().latitude;
-                console.log(eventLat);
+                //console.log(eventLat);
                 eventLng = snapshot.val().longitude;
-                console.log(eventLng);
+                //console.log(eventLng);
                 eventLink = snapshot.val().URI;
-                console.log(eventLink);
+                //console.log(eventLink);
                 eventID = snapshot.val().eventkey;
-                console.log(eventID);
+                //console.log(eventID);
                 
+                //store each events details in a single object
+                var cardObject = 
+                {
+                    act: actName,
+                    date: eventDate,
+                    lat: eventLat,
+                    lng: eventLng,
+                    link: eventLink,
+                    ID: eventID
+                };
+                console.log(cardObject);
 
-                preCard="<div class='row justify-content-md-center'><div class='col-xs-6'><div class='card' style='width: 18rem;'><div class='card-body' value='"+eventID+"'>";
-                cardContent="<h5>"+actName+"</h5><h6 class='mb-2 text-muted'>"+venueName+"</h6><p>"+eventDate+"</p></div></div></div>";
-
-                $("#variableContent").append(preCard+cardContent);
+                //put the event object into an array for display purposes
+                cardElements.push(cardObject);
+                //console.log(cardElements);
             },
         function(errorObject) 
             {
@@ -87,10 +98,30 @@ $("#searchRequest").click(function(event)
             console.log("The read failed: " + errorObject.code);
             }
         );
-
-       // }
+ 
+        //this pauses the process so that there is information to display
+        //timing issue between firebase and array population
+        setTimeout(displayCards, 1000*5);
     }
 );
+
+//this function will display the event cards to the screen
+function displayCards()
+{
+    console.log(cardElements.length);
+
+    for (var s=0; s<cardElements.length; s+=2)
+    {
+        var t = s+1;
+        console.log("this is t: "+t);
+
+        //cardRow = "<div class='row justify-content-md-center'><div class='col-xs-6'><div class='card' style='width: 18rem;><div class='card-body'><h5 class='card-title'>"+cardElements[s].act+"</h5><h6 class='card-subtitle mb-2 text-muted'>"+cardElements[s].date+"</h6><p class='card-text'>"+cardElements[s].link+"</p></div></div></div><div class='col-xs-6'><div class='card' style='width: 18rem;'><div class='card-body'><h5 class='card-title'>"+cardElements[t].act+"</h5><h6 class='card-subtitle mb-2 text-muted'>"+cardElements[t].date+"</h6><p class='card-text'>"+cardElements[t].link+"</p></div></div></div></div>";
+
+        cardRow = "<div class='row justify-content-md-center'><div class='col-xs-6'><div class='card' style='width: 18rem;'><div class='card-body'><h5 class='card-title1'>"+cardElements[s].act+"</h5><h6 class='card-subtitle1 mb-2 text-muted'>"+cardElements[s].date+"</h6><p class='card-text1'>"+cardElements[s].link+"</p></div></div></div><div class='col-xs-6'><div class='card' style='width: 18rem;'><div class='card-body'><h5 class='card-title2'>"+cardElements[t].act+"</h5><h6 class='card-subtitle2 mb-2 text-muted'>"+cardElements[t].date+"</h6><p class='card-text2'>"+cardElements[t].link+"</p></div></div></div></div>";
+
+        $("#variableContent").append(cardRow);
+    }
+}
 
 //triggers display of event details
 $("body").on("click",".card", function()
