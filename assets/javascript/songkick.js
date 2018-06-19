@@ -60,16 +60,20 @@ $(document).ready(function(){
                         events.push(response[e]);
                         var actInfo = response[e].displayName
                         var actUri = response[e].uri
+                        var eventDate = response[e].start.date
+                        var eventTime = response[e].start.time
                         var latitude = response[e].venue.lat
                         var longitude = response[e].venue.lng
+                        var eventKey = "event"+e;
                         
                         var eventInfo = {
                             artist: actInfo,
                             URI: actUri,
                             latitude: latitude,
-                            longitude: longitude
+                            longitude: longitude,
+                            eventkey: eventKey
                         };
-                        database.ref("/events/event"+e).set(
+                        database.ref("event"+e).set(
                             eventInfo
                             
                         );
