@@ -2,8 +2,9 @@ body{
     animation: opac 5s; 
 }
 
-h1{
-    color: white;
+
+#rar{
+    color: white; 
 }
 
 /*I think this is useless*/
@@ -13,7 +14,9 @@ h1{
        
 }
 
-
+#test{
+    font-size: 600px;
+}
 /*I think this is useless*/
 .rightbox{
     animation: opac 4s;
