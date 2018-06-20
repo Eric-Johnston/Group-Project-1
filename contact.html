@@ -4,7 +4,7 @@
 <head>
     <title>Group Project 1</title>
     <!--CSS & Bootstrap-->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <!--Firebase-->
@@ -17,31 +17,70 @@
     <script type="text/javascript" src="./assets/javascript/songkick.js"></script>
     <script type="text/javascript" src="./assets/javascript/gmaps.js"></script>
     <script type="text/javascript" src="./assets/javascript/pagehandler.js"></script>
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-1 h1">Name of Project</span>
+
+
+    <div class="video-background">
+        <div class="video-foreground">
+            <iframe src="https://www.youtube.com/embed/X-dMOvEOQiM?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&mute=1&playlist=cI9u9R1pRNM"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <nav class="navbar">
+        <span class="navbar-brand mb-1 h1">
+            <div id="rar">Name of Project </div>
+        </span>
         <div class="bigbox">
             <div class="smallbox">
                 <div class="rightbox">
-                    <a href="searchresults.html">Search Results</a>
-                    <a href="event.html">Events</a>
-                    <a href="Contact.html">Contact Us</a>
+                    <a class="navlink" href="index.html">Home</a>
+
                 </div>
             </div>
         </div>
     </nav>
+    <div class='container'>
 
-    <form>
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-white text-center py-5 px-4 my-5">
+                    <form>
+                        <div class="form-group">
+                            <input type="email" placeholder="name@example.com">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" rows="3" placeholder="Anything to say?">
 
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Message</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+
+
+                    </form>
+                    
+                    <br>
+                    <button type="button" class="btn btn-secondary">Submit</button>                </div>
+            </div>
         </div>
-    </form>
-    <button type="submit" id="submitContact">Submit</button>
+    </div>
+
+    <div class= "instructions">
+        <h1>TEST</h1>
+        <p>TEST</p>
+        <br>
+        <p>TEST</p>
+        <br><p>TEST</p>
+        <br><p>TEST</p>
+        <br><p>TEST</p>
+        <br><p>TEST</p>
+        <br><p>TEST</p>
+        <br><p>TEST</p>
+        <br>
+    </div>
+
+    

@@ -1,27 +1,3 @@
-body{
-    animation: opac 5s; 
-}
-
-
-#rar{
-    color: white; 
-}
-
-/*I think this is useless*/
-#inputbox {
-    padding:25px;
-    margin:225px;
-       
-}
-
-#test{
-    font-size: 600px;
-}
-/*I think this is useless*/
-.rightbox{
-    animation: opac 4s;
-}
-
 /* Safari 4.0 - 8.0 */
 @-webkit-keyframes opac {
     from {opacity: 0;}
@@ -34,20 +10,34 @@ body{
 
 }
 
-/* Space between navbar links */
-a{
-    margin-left: 10px; 
+body{
+    animation: opac 5s; 
 }
 
+#title{
+    color: white;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
-
-/*LANDING PAGE */
-
+.instructions{
+    /*color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    3px -3px 0 #000,
+    -1px 3px 0 #000,
+    3px 3px 0 #000;  */  
+    font-size: 25px;
+    margin: 20px auto;
+    width: 280px;
+    text-align: center;
+    color: darkgrey;
+    font-weight: 1000;
+}
 
 /*Search expansion-- Credit: W3Schools */
 input[type=text] {
     height:50px; 
-    width: 180px;
+    width: 280px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
@@ -56,9 +46,16 @@ input[type=text]:focus {
     width: 100%;
 }
 
+input[type=email] {
+    height:50px; 
+    width: 280px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
 
-
-
+input[type=email]:focus {
+    width: 100%;
+}
 
 /*Background Video-- Credit:https://codepen.io/dudleystorey/pen/PZyMrd*/
       { box-sizing: border-box; }
@@ -98,8 +95,7 @@ input[type=text]:focus {
       }
       
 
-     
-      
+    
 
 
 
