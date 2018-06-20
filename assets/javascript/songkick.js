@@ -16,8 +16,6 @@ $(document).ready(function(){
     var metroID = [];
     var idLogged = false;
     var events = []
-    console.log(idLogged)
-    console.log(events)
 
     function eventSearch(){
         //*Replace with proper button*
@@ -48,18 +46,22 @@ $(document).ready(function(){
                     })
                     .then(function(eventResponse){
                         var response = eventResponse.resultsPage.results.event
-
-                        function remove(){
-                            
-                            database.ref("/events").remove();
-                        };
-                        
-                        remove();
                         for(e = 0; e < response.length; e++){
+                            function remove(){
+                                
+                                database.ref("/event"+e).remove();
+                            };
+                            
+                            remove();
                        
                         events.push(response[e]);
-                        var actInfo = response[e].displayName
-                        var actUri = response[e].uri
+                        var actInfo = response[e].performance[0].artist.displayName
+                        var banner = response[e].displayName
+                        var eventUri = response[e].uri
+                        var artistURI = response[e].performance[0].artist.uri
+                        var city = response[e].location.city
+                        var venueName = response[e].venue.displayName
+                        var venueURI = response[e].venue.uri
                         var eventDate = response[e].start.date
                         var eventTime = response[e].start.time
                         var latitude = response[e].venue.lat
@@ -67,13 +69,20 @@ $(document).ready(function(){
                         var eventKey = "event"+e;
                         
                         var eventInfo = {
-                            artist: actInfo,
-                            URI: actUri,
-                            latitude: latitude,
-                            longitude: longitude,
+                            Artist: actInfo,
+                            Banner: banner,
+                            artistURI: artistURI,
+                            venueName: venueName,
+                            venueURI: venueURI,
+                            City: city,
+                            eventURI: eventUri,
+                            Date: eventDate,
+                            Time: eventTime,
+                            Latitude: latitude,
+                            Longitude: longitude,
                             eventkey: eventKey
                         };
-                        database.ref("event"+e).set(
+                        database.ref("/event"+e).set(
                             eventInfo
                             
                         );
@@ -82,7 +91,6 @@ $(document).ready(function(){
                 };
             });
         });
-        console.log(events)
     };
 eventSearch();
 });
