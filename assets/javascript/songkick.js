@@ -16,6 +16,7 @@ $(document).ready(function(){
     var metroID = [];
     var idLogged = false;
     var events = []
+    var fbPushed = false;
 
     function eventSearch(){
         //*Replace with proper button*
@@ -23,6 +24,8 @@ $(document).ready(function(){
             event.preventDefault();
             //This resets our metroID variable
             metroID.length = 0
+            fbPushed = false;
+            console.log("before push"+fbPushed)
             //*Replace with value of search bar*
             var locationSearch = $("#search").val();
             var metroURL = "https://api.songkick.com/api/3.0/search/locations.json?query=" + locationSearch + "&apikey=io09K9l3ebJxmxe2"
@@ -87,6 +90,8 @@ $(document).ready(function(){
                             
                         );
                         };
+                        fbPushed = true;
+                        console.log("after push"+fbPushed)
                     });
                 };
             });
