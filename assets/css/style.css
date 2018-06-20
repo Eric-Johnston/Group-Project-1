@@ -16,22 +16,22 @@ body{
 
 #title{
     color: white;
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Merriweather', serif;
 }
 
-.instructions{
-    /*color: white;
-    text-shadow:
-    -1px -1px 0 #000,
-    3px -3px 0 #000,
-    -1px 3px 0 #000,
-    3px 3px 0 #000;  */  
+#font{
+    font-family: 'Montserrat', sans-serif;
+
+}
+.instructions{  
     font-size: 25px;
     margin: 20px auto;
     width: 280px;
     text-align: center;
     color: darkgrey;
     font-weight: 1000;
+    font-family: 'Montserrat', sans-serif;
+
 }
 
 /*Search expansion-- Credit: W3Schools */
@@ -93,7 +93,12 @@ input[type=email]:focus {
       @media all and (max-width: 500px) {
       .vid-info .acronym { display: none; }
       }
-      
+
+#opacity{
+    background-color: rgba(255,255,255,.5);
+
+}
+
 
     
 
