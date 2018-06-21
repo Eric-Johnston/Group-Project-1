@@ -13,10 +13,29 @@
 body{
     animation: opac 5s; 
 }
-
+.bandInfo{
+    width: 18rem; 
+    background: rgba(76, 72, 88, 0.5); 
+    color: white; 
+    font-family: 'Merriweather', serif;
+    text-align: center;
+}
 #title{
     color: white;
     font-family: 'Merriweather', serif;
+    font-size: 25px; 
+    margin-top: 20px;
+    position: fixed;   
+    background-color: black;
+    padding: 0px; 
+    width: 100%; 
+}
+
+#subtitle{
+    font-family: 'Montserrat', sans-serif;
+    background-color: black;
+    padding: 0px; 
+
 }
 
 #font{
@@ -24,8 +43,8 @@ body{
 
 }
 .instructions{  
-    font-size: 25px;
-    margin: 20px auto;
+    font-size: 18px;
+    margin:  auto;
     width: 280px;
     text-align: center;
     color: darkgrey;
@@ -100,7 +119,7 @@ input[type=email]:focus {
 }
 
 
-    
+
 
 
 
