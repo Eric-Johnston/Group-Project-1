@@ -1,59 +1,91 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Group Project 1</title>
-         <!--CSS & Bootstrap-->
-        <link rel="stylesheet" type="text/css" href="style.css"> 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <!--Firebase-->
-        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-        <!--Javascrip & JQuery-->
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-        <script type="text/javascript" src="./assets/javascript/songkick.js"></script>
-        <script type="text/javascript" src="./assets/javascript/gmaps.js"></script>
-        <script type="text/javascript" src="./assets/javascript/pagehandler.js"></script>
-    </head>
-    <body>
-      <nav class="navbar navbar-dark bg-dark">
-        <span class="navbar-brand mb-1 h1">Name of Project - Event Information</span>
-        <div class="bigbox">
-          <div class="smallbox">
-              <div class="rightbox">
-                    <a href="landing-index.html">Main</a>
-                    <a href="searchresults.html">Search Results</a>
-                    <a href="event.html">Event Information</a>
-                    <a href= "contact.html">Contact Us</a>
 
-                </div>
+<head>
+  <title>Group Project 1</title>
+  <!--CSS & Bootstrap-->
+  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <!--Firebase-->
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <!--Javascrip & JQuery-->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+  <script type="text/javascript" src="./assets/javascript/songkick.js"></script>
+  <script type="text/javascript" src="./assets/javascript/gmaps.js"></script>
+  <script type="text/javascript" src="./assets/javascript/pagehandler.js"></script>
+</head>
+
+<body>
+  <div class="landing">
+    <nav class="navbar">
+      <span class="navbar-brand mb-1 h1" id="title">
+        <p>Frenweh Music:
+          <span id="subtitle">find your sound </span>
+        </p>
+      </span>
+      <div class="bigbox">
+        <div class="smallbox">
+          <div class="rightbox">
+            <!-- <a class="navlink" href="contact.html">Instructions/Contact Us</a>-->
+
           </div>
-      </div>  
-     </nav>
+        </div>
+      </div>
+    </nav>
+  </div>
 
-    
-     <div class="container-fluid">                     
-            <div class="row">
-              <div class="col-sm-8" style="background-color:lavender;">space for event information-smaller embed-all event info under the embed
-                    <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" style="width:400px;height:200px;"></iframe>
-                            <div class="band info">
-                                    <h2>Band Information</h2>
-                                    <ul style="list-style-type:none">
-                                      <li>(Name)</li>
-                                      <li>(Location)</li>
-                                      <li>(Date and Time)</li>
-                                    </ul>     
-                          </div>
-                            </div>
-                          </div>
-              <div class="col-sm-4" style="background-color:lavenderblush;">
-                    
-                    <h1>Place for Google Map</h1>
+  <!--
+  <div class="container">
+  
 
-                    <div id="googleMap" style="width:100%;height:400px;"></div>
-                    
-                    <!--<script>
+    <div class= "row">
+      <div class= "col-sm-6 offset-sm-3 bandInfo">
+          <h2>Band Information</h2>
+          <ul style="list-style-type:none">
+            <li>(Name)</li>
+            <li>(Location)</li>
+            <li>(Date and Time)</li>
+          </ul>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3" style="background-color:red;">
+
+
+        <div id="googleMap" style="width:100%;height:400px;">
+        </div>
+      </div>
+    </div>
+
+  -->
+
+  <div class="container">
+
+
+    <div class="row">
+      <div class="col-sm-6 bandInfo" >
+        <h2>Band Information</h2>
+        <ul style="list-style-type:none">
+          <li>(Name)</li>
+          <li>(Location)</li>
+          <li>(Date and Time)</li>
+        </ul>
+      </div>
+      <div class="col-sm-6" style="background-color:red; ">
+
+
+        <div id="googleMap" style="width:100%;height:400px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!--<script>
                     function myMap() {
                     var mapProp= {
                         center:new google.maps.LatLng(51.508742,-0.120850),
@@ -64,17 +96,16 @@
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>-->
 
-              </div>
-            </div>
-          </div>
+  </div>
+  </div>
+  </div>
 
-    <!--Responsive embed-->
-     <!--<div class="embed-responsive embed-responsive-16by9">
+  <!--Responsive embed-->
+  <!--<div class="embed-responsive embed-responsive-16by9">
             <iframe class="embed-responsive-item" src="..."></iframe>
           </div>
           
           <!-- 4:3 aspect ratio -->
-          <!--S<div class="embed-responsive embed-responsive-4by3">
+  <!--S<div class="embed-responsive embed-responsive-4by3">
             <iframe class="embed-responsive-item" src="..."></iframe>
           </div>
-
