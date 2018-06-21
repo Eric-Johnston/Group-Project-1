@@ -20,7 +20,7 @@ $(document).ready(function(){
 
     function eventSearch(){
         //*Replace with proper button*
-        $("#submit").on("click", function(){
+        $("#searchRequest").on("click", function(){
             event.preventDefault();
             //This resets our metroID variable
             metroID.length = 0
