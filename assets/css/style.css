@@ -24,11 +24,9 @@ body{
 #title{
     color: white;
     font-family: 'Merriweather', serif;
-    font-size: 25px; 
-    margin-top: 20px;
+    font-size: 25px;
     position: fixed;   
     background-color: black;
-    padding: 0px; 
     width: 100%; 
 }
 
@@ -78,7 +76,6 @@ input[type=email]:focus {
 }
 
 /*Background Video-- Credit:https://codepen.io/dudleystorey/pen/PZyMrd*/
-      { box-sizing: border-box; }
       .video-background {
         background: #000;
         position: fixed;
@@ -116,4 +113,10 @@ input[type=email]:focus {
 
 #opacity{
     background-color: rgba(255,255,255,.5);
+}
+p{
+    text-align: center
+}
+.navbar{
+    z-index: 1;
 }
